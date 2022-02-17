@@ -17,6 +17,8 @@ import green from '@material-ui/core/colors/green';
 // Import Order Actions
 import { ordersFetchData } from '../actions/orders';
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 // Declare Styles
 const styles = theme => ({
   root: {
@@ -34,7 +36,7 @@ const styles = theme => ({
 
 class OrderTable extends Component {
   componentDidMount() {
-    this.props.fetchData('http://localhost:8000/api/orders/1');
+    this.props.fetchData(`${baseURL}/api/orders/1`);
   }
 
   render() {

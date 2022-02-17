@@ -12,6 +12,8 @@ import Button from '@material-ui/core/Button';
 // Import Buy Actions
 import { productFetchData, buyOrderPostData } from '../actions/buyOrder';
 
+const baseURL = process.env.REACT_APP_BASE_URL;
+
 // Declare Styles
 const styles = theme => ({
   root: {
@@ -52,7 +54,7 @@ class Buy extends Component {
 
   // Fetch Product Data on Componenet Mount
   componentDidMount() {
-    this.props.fetchData('http://localhost:8000/api/products');
+    this.props.fetchData(`${baseURL}/api/products`);
   }
 
   handleClose = () => {
@@ -140,7 +142,7 @@ class Buy extends Component {
       },
       quantityWanted: quantityWanted,
     };
-    this.props.postData('http://localhost:8000/api/order', header);
+    this.props.postData(`${baseURL}/api/order`, header);
   };
 
   render() {
